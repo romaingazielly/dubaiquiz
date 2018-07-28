@@ -1,4 +1,4 @@
-# try
+# Dubai Quiz & Stereotypes
 
 ## Project setup
 ```

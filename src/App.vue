@@ -1,6 +1,5 @@
 <template>
   <v-app dark center class="text-xs-center">
-    <router-view></router-view>
     <!-- Toolbar -->
       <v-toolbar dark color="orange">
         <!-- <v-toolbar-side-icon></v-toolbar-side-icon> --> 
@@ -63,6 +62,9 @@ export default {
 </script>
 
 <style>
+  form .primary--text{
+    color: #ff9800!important;
+  }
   .intro{
     display: table;
     margin:auto;
