@@ -80,9 +80,10 @@
           <template slot="items" slot-scope="props">
             <td class="text-xs-left">{{ props.item.pseudo }}</td>
             <td class="text-xs-left">{{ props.item.score }}</td>
+            <td class="text-xs-left">date</td>
           </template>
         </v-data-table>
-        <v-btn color="info" @click="replay()">Rejouter !</v-btn>
+        <v-btn color="info" @click="replay()">Rejouer !</v-btn>
       </v-container>
     </transition>
 
@@ -182,7 +183,11 @@ export default {
     replay(){
       this.classementView = false
       this.questionsView = true
-    }
+      //shuffle(this.questionList)
+      this.currentQuestion = 0
+      this.count_right = 0
+      this.count_wrong = 0
+    },
   },
   mounted() {
     // Later
