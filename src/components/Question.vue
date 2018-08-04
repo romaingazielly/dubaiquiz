@@ -20,7 +20,7 @@
     <transition name="bounce" mode="out-in">
     <v-container fluid class="question-container" v-if="questionsView">
       <v-layout column align-center>
-        <p class="question" v-model="questionList">{{questionList[currentQuestion].question}}</p>
+        <p class="question" v-model="realQuestionList">{{realQuestionList[currentQuestion].question}}</p>
 
         <v-dialog v-model="dialog" width="90%" persistent>
 
@@ -36,14 +36,14 @@
 
         
           <v-card class="text-xs-center">
-            <v-card-title class="headline success justify-center" primary-title v-if="questionList[currentQuestion].answer">
+            <v-card-title class="headline success justify-center" primary-title v-if="realQuestionList[currentQuestion].answer">
               C'est Vrai !
             </v-card-title>
             <v-card-title class="headline error justify-center" primary-title v-else>
               C'est Faux !
             </v-card-title>
             <v-card-text class="padding">
-              {{questionList[currentQuestion].fact}}
+              {{realQuestionList[currentQuestion].fact}}
             </v-card-text>
 
             <v-divider></v-divider>
@@ -80,7 +80,7 @@
           <template slot="items" slot-scope="props">
             <td class="text-xs-left">{{ props.item.pseudo }}</td>
             <td class="text-xs-left">{{ props.item.score }}</td>
-            <td class="text-xs-left">date</td>
+            <td class="text-xs-left">{{ props.item.date }}</td>
           </template>
         </v-data-table>
         <v-btn color="info" @click="replay()">Rejouer !</v-btn>
@@ -103,20 +103,230 @@ export default {
       currentQuestion: 0,
       dialog: false,
       questionList: [{
-          question: 'Is Zain the King of AWS security?',
-          answer: false,
-          fact: 'Don\'t give him your server security.. Something terrible could happen'
-        },{
-          question: 'Is Dubai the capital of UAE?',
-          answer: false,
-          fact: 'Abu Dabi is the capital of UAE.'
-        },{
-          question: 'Is Vincent in holidays?',
-          answer: true,
-          fact: 'Yes, like always.'
-        }],
+        question: 'Is Zain the King of AWS security?',
+        answer: false,
+        fact: 'Don\'t give him your server security.. Something terrible could happen'
+      },{
+        question: 'Is Dubai the capital of UAE?',
+        answer: false,
+        fact: 'Abu Dabi is the capital of UAE.'
+      },{
+        question: 'Is Vincent in holidays?',
+        answer: true,
+        fact: 'Yes, like always.'
+      }],
       realQuestionList: [{
-        question: ''
+        question: 'Dans un couple marié, si le père meurt, l’enfant devient pupille de l’état',
+        answer: true,
+        fact: 'Des démarches doivent être faite ou le père accorde la garde de l\'enfant à la mère s\'il décède.'
+      },{
+        question: 'Si 2 hommes sont pris en train d\'avoir des relation sexuelles, seul celui qui se fait enculer est considéré comme gay',
+        answer: true,
+        fact: 'Selon la loi, seule la personne jouant le rôle de la femme est considéré comme homosexuel, et donc condomné.'
+      },{
+        question: 'Traverser hors des passages piétons ou lorsque le petit bonhomme est rouge est puni de 420AED d’amende',
+        answer: true,
+        fact: 'En France, vous risquez 5€ d\'amende. Aux UAE, c\'est 105€. Plutôt dissuasif non ?'
+      },{
+        question: 'Les femmes n’ont pas le droit de conduire de camions',
+        answer: false,
+        fact: 'Les femmes ont le droit de conduire tout type de véhicule, au même titre que les hommes.'
+      },{
+        question: 'Il est obligatoire de disposer d’une « liquor license » pour pouvoir boire de l’alcool chez soi',
+        answer: true,
+        fact: 'Sans license, vous risquez une amende, un signalement aurpès de votre employeur et une suspension de votre visa.'
+      },{
+        question: 'Il est obligatoire de disposer d’une « drug license » pour pouvoir fumer du cannabis',
+        answer: false,
+        fact: 'Le cannabis, au même titre que tous les autres produits considérés comme des drogues : cocaïne, MDMA, codeïne etc.. est puni par la loi d\'une peine de prison ferme ainsi que de d\'un ban des UAE engendrant confiscation par l\'état de tous vos biens (comptes en banques, affaires personnels etc..)'
+      },{
+        question: 'Vous devez posséder une lettre de non objection de votre entreprise pour pouvoir faire la demande d’une « liquor license »',
+        answer: true,
+        fact: 'Sans l\'approbation de votre employeur, impossible d\'avoir une license d\'alcool.'
+      },{
+        question: 'L’alcool est en moyenne 3x plus cher à Dubai qu’en France',
+        answer: false,
+        fact: 'Dans les bars, le prix d\'une pinte de bière est autour de 10€. Un prix comparable à ceux que l\'on retrouve à Paris.'
+      },{
+        question: 'Les loyers se paient à l’année et non au mois.',
+        answer: true,
+        fact: 'Lorsque vous vous engagez pour un appartement, vous le faites pour 1 mois. Cependant, pour faire face à la crise immoblière qui touche Dubaï, de nombreux propriétaires accèptent désormais des paiements en plusieurs fois.'
+      },{
+        question: 'Les colocations entre personne de sexe différents sont interdites',
+        answer: true,
+        fact: 'Les colocations sont interdites par la loi. Peut importe le sexe des habitants. Mais cohabiter avec des personnes de sexe différents est encore pire et expose à des sanctions supérieures. Pour autant il n\'y a que très peu de contrôles et cette situation est tolérée du moment que les habitants ne créent pas de problèmes au voisinage.'
+      },{
+        question: 'Le porc et les produits à base de porcs sont introuvables excepté au duty free de l\'aéroport.',
+        answer: false,
+        fact: 'Vous trouverez du porc à Dubaï dans la plupart des supermarché dans une section dédiée à ces produits.'
+      },{
+        question: 'La limite d’alcool par litre de sang au volant pour les non musulmans est de 0.2g',
+        answer: false,
+        fact: 'Musulman ou pas, la limite d\'alcool par litre de sang est de 0. Il n\'y a pas de contrôles d\'alcoolémie sur les routes, mais si vous crééez un accident et êtes contrôlés positif à l\'alcool, c\'est la prison qui vous attend.'
+      },{
+        question: 'Tous les clubs ferment à 1h du matin, maxiumum.',
+        answer: false,
+        fact: 'Les boîtes de nuits ferment généralement à 3h au plus tard le weekend. Certaines bénéficient d\'autorisations pour rester ouvertes jusqu\'à 4h qui est la limite.'
+      },{
+        question: 'Le Métro dispose d’un Wagon interdit aux femmes',
+        answer: false,
+        fact: 'À contrario, le métro dispose d\'un wagon exclusivement réservé aux femmes et aux enfants.'
+      },{
+        question: 'Certaines plages sont uniquement réservées aux femmes',
+        answer: true,
+        fact: 'La plupart du temps ce ne sont que durant certains jours que ces plages sont réservées aux femme, comme la plage d\'Al Mamazar, réservée aux femme les lundi et mercredi.'
+      },{
+        question: 'Les femmes ne doivent pas sortir sans voile le vendredi',
+        answer: false,
+        fact: 'Jour saint ou pas jour saint. Une femme est libre de s\'habiller comme elle le souhaite à Dubaï tant que ne n\'est pas offensant.'
+      },{
+        question: 'Les films au cinéma sont censurés des scènes violentes et sexuelles',
+        answer: true,
+        fact: 'C\'est vrai mais il est possible de trouver des films en version non censurés dans certains cinémas, comme le VOX de Mall of the Emirates.',
+      },{
+        question: 'Le prix des plaques d’immatriculation peut aller jusqu’à plusieurs millions d’euros.',
+        answer: true,
+        fact: 'Moins vous avez de numéros sur votre plaques, plus cela signifie que vous êtes importants et riches. Certaines plaques peuvent donc valoir jusqu\ 10x le prix du bolide qu\'elles hornent.'
+      },{
+        question: 'Lorsque vous êtes flashé pour excès de vitesse, aucun point n’est retiré sur votre permis. Vous devez seulement payer une amende ',
+        answer: true,
+        fact: 'Les Émiratis étant fans de voitures de sports, la vitesse est un jeu pour la plupart d\'entre eux, d\'autant plus que les routes sont généralement droites sur des dizaines de kilomètres dans le désert.'
+      },{
+        question: 'Le nom des stations de métro me vent être acheté par des marques pour de faire de la pub ',
+        answer: true,
+        fact: 'En France, on vend le nom de nos stades. Aux UAE, on vend le nom des stations de métro.'
+      },{
+        question: 'A Dubai, la taxe d’habitation (dewa) représente 5% du montant total du loyer',
+        answer: true,
+        fact: 'Au moins c\'est simple, vous suarez dés la souscription du bail combien vous devrez payer. Cette somme est répartie mensuellement sur toute la durée du bail.'
+      },{
+        question: 'À Dubaï, la semaine débute le vendredi.',
+        answer: false,
+        fact: 'La semaine débute le dimanche. Le week-end est donc composé du vendredi (jour saint) et du samedi.'
+      },{
+        question: 'Les Émiratis ne représentent que 15% de la population du pays.',
+        answer: true,
+        fact: 'La population des UAE est estimée à 9.2 millions d\'habitants pour 1.4 Millions d\'Émiratis et 7.8 millions d\'expatriés.'
+      },{
+        question: 'Le SMIC Émirati est de 7500€ net / mois.',
+        answer: true,
+        fact: 'Valable uniquement pour les personnes bénéficiants de la nationnalité Émiratie.'
+      },{
+        question: 'Il n\'a pas d\'heure d\'été et d\'heure d\'hiver à Dubaï',
+        answer: true,
+        fact: 'C\'est tout le temps l\'été alors à quoi bon changer d\'heure ?'
+      },{
+        question: 'Le décalage horaire est de 3h l’été et de 4h l’hiver.',
+        answer: false,
+        fact: '2h l\'été et 1h l\'hiver.'
+      },{
+        question: 'Les UAE sont divisés en 6 émirats.',
+        answer: false,
+        fact: 'Il y en a 7 : Abu Dhabi, Ajman, Fujairah, Sharjah, Dubai, Ras al-Khaimah et Umm al-Qaiwain.'
+      },{
+        question: 'Dubaï est le plus grand émirats des UAE',
+        answer: false,
+        fact: 'Le plus grand est Abu Dhabi qui s\'étant sur 67 340 Km². Dubaï est le 2e plus grand mais loin dèrriere, avec une surface de seulement 3 885km², soit 37 fois Paris.'
+      },{
+        question: 'Dubaï est l\'émirat le plus peuplé des UAE.',
+        answer: true,
+        fact: 'Avec plus de 2 500 000 habitants, Dubaï est effectivement l\'émirat le plus peuplé des UAE devant Abu Dhabi (1 678 000). Dubaï représente à lui seule presque la moitié de la population totale du pays.'
+      },{
+        question: 'Consulter du porno est punissable d’une peine de prison ferme',
+        answer: false,
+        fact: 'Les sites pornographiques sont bloqués par l\'état et toute revue pornographique sera confisquée si trouvée par un policier. Cependant vous ne risquez pas d\'aller en prison pour ça.'
+      },{
+        question: 'Les appels via Skype, Whatsapp et Facebook sont bloqués par l’état.',
+        answer: true,
+        fact: 'Les boites de télécom locales proposent des forfaits internationnals. Les appels via ces applications sont considérés comme de la concurence déloyale et donc bloqués.'
+      },{
+        question: 'Pour obtenir la nationalité Emirati il faut se convertir à l’Islam et effectuer un pèlerinage vers la Mecque.',
+        answer: false,
+        fact: 'Si vous êtes un homme, vous ne pouvez pas acquérir la nationalité Émiratie. Si vous êtes une femme, vous devrez en effet vous convertir à l\'Islam et épouser un Émirati afin de recevoir la nationnalité.'
+      },{
+        question: 'Vous trouverez des jerricans souvenir contenant 1L d’essence pour 3aed (~0.7€) dans les boutiques de souvenir du vieux Dubaï.',
+        answer: false,
+        fact: 'On sait tous que l\'essence est moins chère à Dubaï, mais il ne faut pas abuser.'
+      },{
+        question: 'Dubaï consomme 700 tonnes de petrole / jour pour fournir l’eau courante à tous.',
+        answer: true,
+        fact: 'Invraissemblable, mais vrai. Ce chiffre prend en compte l\'arrosage de tous les espaces verts de la ville.'
+      },{
+        question: 'Le Burj El Arab est la plus grande tour du monde.',
+        answer: false,
+        fact: 'Bien qu\'imposante du fait de ses 210m et de ses 56 étages, le Burj El Arab est pourtant bien loin d\'être la plus grande tour du monde. C\'est cependant l\'un des hotels les plus luxueux au monde auto-proclamé 7 étoiles.'
+      },{
+        question: 'Le Burj Khalifa mesure 2.5x la tour Eiffel.',
+        answer: true,
+        fact: 'Du haut de ses 828m. Le Burj Khalifa est actuellement la plus grande tour du monde et peut donc alègrement cumuler 2.5 tour Effeil (324m).'
+      },{
+        question: 'Les Français sont la 1ère population occidentale expatriée de Dubaï',
+        answer: false,
+        fact: 'Bien que la présence Française soit indéniable aux AUE, les Anglais sont la première population occidentale expatriée présente à Dubai. Ils étaient 240 000 en 2012.'
+      },{
+        question: 'Les taxis roses sont réservés aux femmes et conduits par des femmes',
+        answer: true,
+        fact: 'Les taxis roses sont réservées aux femmes et aux familles exclusivement.'
+      },{
+        question: 'Les dromadaires sont interdits dans les courses de chameaux',
+        answer: false,
+        fact: 'Le dromadaire et le chameau sont réuni sous le même mot en Anglais : Camel. Les 2 sont autorisés durant les "Camel Race".'
+      },{
+        question: 'Les jockey de chameaux sont des robots mécaniques',
+        answer: true,
+        fact: 'Avant, des enfants étaient utilisés comme jockey. Ceux-ci avaient généralement entre 3 et 15 ans et faisaient parfois l\'objet d\'un traffic d\'êtres humains. Les UAE ont été le 1er pays a interdir l’utilisation d\'enfants de moins de 15 ans comme jockeys pour les courses en 2002.'
+      },{
+        question: 'Le metro comporte un wagon fumeur ',
+        answer: false,
+        fact: 'Fumer dans le métro vous expose à un amende de 50€. Et ce n\'est pas comme en France, ici comptez sur eux pour l\'appliquer.'
+      },{
+        question: 'Il faut avoir un permis spécial pour conduire dans le désert ',
+        answer: false,
+        fact: 'Bien que plus dangereuse et nécéssitant un certain savoir faire, vous avez seulement besoin de votre permis B pour conduire dans le désert.'
+      },{
+        question: 'Le vol, quand il dépasse un certain montant peut être puni de la peine de mort.',
+        answer: true,
+        fact: 'Bien qu\'encore en vigueur aux UAE, la peine de mort n\'est appliquée que dans des cas extrèmement graves. Seulement 8 exécutions ont été recensées aux UAE sur ces 10 dernières années.'
+    // },{
+    //     question: 'Si vous êtes arrêté et placé en garde à vue la police peut vous raser la tête.',
+    //     answer: true,
+    //     fact: 'C\'est en effet possible'
+      },{
+        question: 'L’âge adulte à Dubaï commence à 21 ans, comme aux États Unis.',
+        answer: true,
+        fact: 'Il ne vous sera donc pas possible de rentrer dans les clubs ou les boîtes de nuits distribuant de l\'alcool avant cet âge là.'
+    // },{
+    //     question: 'Il n’est pas possible d’emprunter de l’argent à une banque car c’est interdit par l’Islam ',
+    //     answer: true,
+    //     fact: 'Yes, like always.'
+      },{
+        question: 'Les paris et jeux d’argent sont interdit.',
+        answer: true,
+        fact: 'N\'essayez pas de ramener votre malette de poker, elle sera saisie par la douane.'
+      },{
+        question: 'Les personnes de nationalité Israélienne et Iranienne n’ont pas le droit d’accès au pays',
+        answer: true,
+        fact: 'Également valable pour les personnes de nationnalité Qatari suite à la crise actuelle et à l\'embargo sur le Qatar.'
+      },{
+        question: 'Tous les produits commercialisés en magasin sont soumis à une TVA de 5%',
+        answer: true,
+        fact: 'Fini le temps ou les taxes n\'existaient pas à Dubaï. Depuis le 1er janvier 2018, la TVA à fait son apparition. et ce n\'est que le début.'
+      },{
+        question: 'Le chlore est interdit pour des raisons religieuses. Les piscines sont donc purgées au sel ',
+        answer: false,
+        fact: 'La plupart des piscines à Dubaï sont entretenues avec du chlore.'
+      },{
+        question: 'Les seuls pays partageant une frontière physique terrestre avec les UAE sont l’Arabie Saoudite, Oman et le Yémen',
+        answer: false,
+        fact: 'Le Yemen n\'a pas de frontière terreste avec les UAE.'
+      },{
+        question: 'Les femmes n’ont pas le droit de conduire seules',
+        answer: false,
+        fact: 'Les femmes ont parfaitement le droit de conduire seules. L\'Arabie Saoudite, dernier pays dans le monde où les femmes n\'avaient pas le droit de conduire ont levé cette interdiction en 2017.'
+      // },{
+      //   question: 'Le chewing-gum est interdit car il accentue la dégradation des trottoirs et lieux publiques',
+      //   answer: false,
+      //   fact: 'Le chewing-gum est autorisé dans la plupart des lieux à Dubaï, mais interdit dans le métro.'
       }],
       totalQuestion: '3',
       count_right: '0',
@@ -129,11 +339,13 @@ export default {
       validForm: false,
       th:[
         {text:'Pseudo', value: 'pseudo'},
-        {text: 'Score', value: 'score'}
+        {text: 'Score', value: 'score'},
+        {text: 'Date', value: 'date'}
       ],
       classement: [{
-        pseudo: 'Romain',
-        score: '3'
+        pseudo: '👑 Romain',
+        score: '3',
+        date: '15-07-2018'
       }]
     }
   },
@@ -143,7 +355,7 @@ export default {
   methods:{
     displayResult(result){
       this.scoreStarted = true
-      if(result == this.questionList[this.currentQuestion].answer){
+      if(result == this.realQuestionList[this.currentQuestion].answer){
         console.log('correct')
         this.count_right++
       }
@@ -151,13 +363,13 @@ export default {
         this.count_wrong++
         console.log('incorrect')
       }
-      this.questionList[this.currentQuestion]
-      this.questionList[this.currentQuestion].fact
+      this.realQuestionList[this.currentQuestion]
+      this.realQuestionList[this.currentQuestion].fact
     },
     nextQuestion(){
-      console.log('max:', this.questionList.length-1)
+      console.log('max:', this.realQuestionList.length-1)
       this.dialog = false
-      if(this.currentQuestion < this.questionList.length-1){
+      if(this.currentQuestion < this.realQuestionList.length-1){
         this.$nextTick(function() {
           this.currentQuestion++
         })
@@ -173,9 +385,19 @@ export default {
     },
     saveScore(){
       console.log('score saved!')
+
+      const toTwoDigits = num => num < 10 ? '0' + num : num;
+      let today = new Date();
+      let year = today.getFullYear();
+      let month = toTwoDigits(today.getMonth() + 1);
+      let day = toTwoDigits(today.getDate());
+      let scoreDate = `${day}-${month}-${year}`;
+
+      console.log(scoreDate)
       this.classement.push({
         pseudo: this.pseudo,
-        score: this.count_right
+        score: this.count_right,
+        date: scoreDate
       })
       this.formView = false
       this.classementView = true
@@ -219,7 +441,7 @@ p.question{
   margin-top:20px;
 }
 .padding{
-  padding:50px 0;
+  padding:50px 2%;
 }
 .v-divider{
   margin-bottom: 0;
