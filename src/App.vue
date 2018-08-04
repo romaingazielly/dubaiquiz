@@ -5,7 +5,7 @@
         <!-- <v-toolbar-side-icon></v-toolbar-side-icon> --> 
         <v-spacer></v-spacer>
 
-        <v-toolbar-title class="white--text">Dubai quiz</v-toolbar-title>
+        <v-toolbar-title class="white--text">Quiz Dubai</v-toolbar-title>
 
         <v-spacer></v-spacer>
 
@@ -17,7 +17,8 @@
       <section v-if="visible" key="visible" class="intro">
         <h1 class="display-1">Quiz Dubai</h1>
         <v-divider></v-divider>
-        <p>Préjugé ou réalité ?</p>
+        <p>Préjugé ou réalité ?<br/>
+        Jusqu’où iront vos préjugés ?</p>
         <v-btn color="warning" @click.prevent="starQuiz">Commencer</v-btn>
       </section>
 
@@ -71,7 +72,7 @@ export default {
   }
   .aside{
     position: absolute;
-    top:0px;
+    top:5px;
     right: 20px;
     height:48px;
     display: flex;
@@ -86,6 +87,19 @@ export default {
   .v-divider{
     margin:10px 0 20px;
   }
+  .table-score{
+    width:4%;
+    padding:0 4% !important;
+  }
+  .table-date{
+    width:45%;
+    padding:0 4% !important;
+  }
+  .table-pseudo{
+    width:51%;
+    padding:0 4% !important;
+  }
+  
   /* Fade animation */
   .fade-enter-active{
     transition: opacity .5s, right .5s
