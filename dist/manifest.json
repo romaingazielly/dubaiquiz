@@ -5,9 +5,9 @@
  "short_name" : "Quiz Dubai",
  "icons" :   [
    {
-     "src" : "\/public\/favicon.png",
+     "src" : "/public/favicon.png",
      "sizes" : "256x256",
-     "type" : "image\/png"
+     "type" : "image/png"
    }
  ],
  "theme_color" : "#ff9800",

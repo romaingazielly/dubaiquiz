@@ -20,7 +20,7 @@
     <transition name="bounce" mode="out-in">
     <v-container fluid class="question-container" v-if="questionsView">
       <v-layout column align-center>
-        <p class="question" v-model="questionList">{{questionList[currentQuestion].question}}</p>
+        <p class="question" v-model="realQuestionList">{{realQuestionList[currentQuestion].question}}</p>
 
         <v-dialog v-model="dialog" width="90%" persistent>
 
@@ -40,14 +40,14 @@
               Correct
             </v-card-title> -->
 
-            <v-card-title class="headline justify-center" primary-title v-if="questionList[currentQuestion].answer" v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
+            <v-card-title class="headline justify-center" primary-title v-if="realQuestionList[currentQuestion].answer" v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
               C'est Vrai !
             </v-card-title>
             <v-card-title class="headline error justify-center" primary-title v-else v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
               C'est Faux !
             </v-card-title>
             <v-card-text class="padding">
-              {{questionList[currentQuestion].fact}}
+              {{realQuestionList[currentQuestion].fact}}
             </v-card-text>
 
             <v-divider></v-divider>
@@ -119,7 +119,7 @@ export default {
         answer: true,
         fact: 'Yes, like always.'
       }],
-      realQuestionList: [{
+      realrealQuestionList: [{
         question: 'Dans un couple marié, si le père meurt, l’enfant devient pupille de l’état.',
         answer: true,
         fact: 'Le père doit accorder de son vivant la garde de l\'enfant à la mère dans le cas ou il décède, autrement c\'est l\'état qui devient responsable de l\'enfant.'
@@ -366,7 +366,7 @@ export default {
   methods:{
     displayResult(result){
       this.scoreStarted = true
-      if(result == this.questionList[this.currentQuestion].answer){
+      if(result == this.realQuestionList[this.currentQuestion].answer){
         console.log('correct')
         this.count_right++
         this.isCorrect = true
@@ -378,13 +378,13 @@ export default {
         this.isCorrect = false
         this.isNotCorrect = true
       }
-      this.questionList[this.currentQuestion]
-      this.questionList[this.currentQuestion].fact
+      this.realQuestionList[this.currentQuestion]
+      this.realQuestionList[this.currentQuestion].fact
     },
     nextQuestion(){
-      console.log('max:', this.questionList.length-1)
+      console.log('max:', this.realQuestionList.length-1)
       this.dialog = false
-      if(this.currentQuestion < this.questionList.length-1){
+      if(this.currentQuestion < this.realQuestionList.length-1){
         this.$nextTick(function() {
           this.currentQuestion++
         })
@@ -395,7 +395,7 @@ export default {
       console.log(this.currentQuestion)
     },
     endTheQuiz(){
-      this.totalQuestion = this.questionList.length
+      this.totalQuestion = this.realQuestionList.length
       this.questionsView = false
       this.formView = true
     },
@@ -422,7 +422,7 @@ export default {
     replay(){
       this.classementView = false
       this.questionsView = true
-      //shuffle(this.questionList)
+      //shuffle(this.realQuestionList)
       this.currentQuestion = 0
       this.count_right = 0
       this.count_wrong = 0

@@ -15,10 +15,10 @@
 
     <transition name="bounce" appear mode="out-in">
       <section v-if="visible" key="visible" class="intro">
-        <h1 class="display-1">Quiz Dubai</h1>
+        <h1 class="display-1">Préjugé ou réalité ?</h1>
         <v-divider></v-divider>
-        <p>Préjugé ou réalité ?<br/>
-        Jusqu’où iront vos préjugés ?</p>
+        <h2>Jusqu’où iront vos préjugés ?</h2>
+        <p>Répondez aux 50 questions qui vont suivre pour voir si votre vision de Dubai correspond à la réalité !</p>
         <v-btn color="warning" @click.prevent="starQuiz">Commencer</v-btn>
       </section>
 
@@ -63,6 +63,12 @@ export default {
 </script>
 
 <style>
+h1{
+  margin:30px auto;
+}
+  h2{
+    margin:20px auto;
+  }
   form .primary--text{
     color: #ff9800!important;
   }
