@@ -1,6 +1,6 @@
 import { register } from 'register-service-worker'
 
-register('/sw.js', {
+register('/service-worker.js', {
   ready () {
     console.log('Service worker is active.')
   },
