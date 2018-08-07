@@ -467,8 +467,9 @@ export default {
     margin-bottom: 0;
   }
   .ranking-container{
-    width:50%;
-    min-width:300px;
+    width:90%;
+    min-width:290px;
+    max-width: 500px;
     display:table;
     margin: auto;
   }
@@ -489,4 +490,5 @@ export default {
   .form-container button{
     margin:50px auto 0;
   }
+  
 </style>

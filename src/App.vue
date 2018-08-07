@@ -96,18 +96,7 @@ h1{
   .v-divider{
     margin:10px 0 20px;
   }
-  .table-score{
-    /*width:4%;*/
-    padding:0 4% !important;
-  }
-  .table-date{
-    width:45%;
-    padding:0 4% !important;
-  }
-  .table-pseudo{
-    width:51%;
-    padding:0 4% !important;
-  }
+
 
   /* Fade animation */
   .fade-enter-active{
