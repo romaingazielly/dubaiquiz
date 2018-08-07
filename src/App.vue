@@ -88,7 +88,7 @@ export default {
     margin:10px 0 20px;
   }
   .table-score{
-    width:4%;
+    /*width:4%;*/
     padding:0 4% !important;
   }
   .table-date{
@@ -99,7 +99,7 @@ export default {
     width:51%;
     padding:0 4% !important;
   }
-  
+
   /* Fade animation */
   .fade-enter-active{
     transition: opacity .5s, right .5s
