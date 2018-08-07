@@ -1,5 +1,6 @@
 import '@babel/polyfill'
 import Vue from 'vue'
+import VueWorker from 'vue-worker';
 import Vuetify from 'vuetify'
 import './plugins/vuetify'
 import App from './App.vue'
@@ -14,6 +15,8 @@ Vue.use(Vuetify, {
     accent: colors.indigo.base // #3F51B5
   }
 })
+
+Vue.use(VueWorker)
 
 
 new Vue({

@@ -58,6 +58,17 @@ export default {
     starQuiz(){
         this.visible = !this.visible
       },
+  },
+  mounted() {
+    this.$worker.run((arg) => {
+      return `Hello, ${arg}!`
+    }, ['World'])
+    .then(result => {
+      console.log(result)
+    })
+    .catch(e => {
+      console.error(e)
+    })
   }
 }
 </script>
