@@ -18,7 +18,7 @@
         <h1 class="display-1">Préjugé ou réalité ?</h1>
         <v-divider></v-divider>
         <h2>Jusqu’où iront vos préjugés ?</h2>
-        <p>Répondez aux 50 questions qui vont suivre pour voir si votre vision de Dubai correspond à la réalité !</p>
+        <p class="instructions">Répondez aux 50 questions qui vont suivre pour voir si votre vision de Dubai correspond à la réalité !</p>
         <v-btn color="warning" @click.prevent="starQuiz">Commencer</v-btn>
       </section>
 
@@ -68,6 +68,9 @@ h1{
 }
   h2{
     margin:20px auto;
+  }
+  p.instructions{
+    padding:0 5%;
   }
   form .primary--text{
     color: #ff9800!important;
