@@ -83,7 +83,7 @@
         <v-data-table hide-actions :headers="th" :pagination.sync="pagination" :items="classement" rows-per-page-text="Joueurs par page">
           <template slot="items" slot-scope="props">
             <td class="text-xs-left table-pseudo">{{ props.item.pseudo }}</td>
-            <td class="text-xs-left table-score">{{ props.item.score }}</td>
+            <td class="text-xs-center table-score">{{ props.item.score }}</td>
             <td class="text-xs-left table-date">{{ props.item.date }}</td>
           </template>
         </v-data-table>
