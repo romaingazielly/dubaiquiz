@@ -2,8 +2,8 @@ import '@babel/polyfill'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import './plugins/vuetify'
-import './service-worker.js'
 import App from './App.vue'
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 import colors from 'vuetify/es5/util/colors'
