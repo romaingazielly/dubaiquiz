@@ -2,7 +2,7 @@ import '@babel/polyfill'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import './plugins/vuetify'
-import './sw.js'
+import './service-worker.js'
 import App from './App.vue'
 
 Vue.config.productionTip = false
