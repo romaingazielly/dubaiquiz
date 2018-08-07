@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import './plugins/vuetify'
 import App from './App.vue'
-import './ServiceWorker'
+import '../public/ServiceWorker'
 
 Vue.config.productionTip = false
 import colors from 'vuetify/es5/util/colors'

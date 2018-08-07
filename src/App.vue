@@ -78,6 +78,7 @@ h1{
   .intro{
     display: table;
     margin:auto;
+    max-width:500px;
   }
   .aside{
     position: absolute;
