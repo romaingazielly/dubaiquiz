@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
       console.log('ServiceWorker registration success', registration.scope);
-      registration.update()
+      //registration.update()
       //installWorkers()
       test()
     }, function(err) {
@@ -21,29 +21,38 @@ if ('serviceWorker' in navigator) {
 }
 
 function test(){
-  self.addEventListener('install', e => {
-    const timeStamp = Date.now();
-    e.waitUntil(
-      caches.open(cacheName).then(cache => {
-        return cache.addAll(filesToCache)
-          .then(() => self.skipWaiting());
+  self.addEventListener('install', function(event) {
+    event.waitUntil(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.addAll(filesToCache);
       })
     );
   });
 
-  self.addEventListener('activate', event => {
-    event.waitUntil(self.clients.claim());
+  self.addEventListener('fetch', function(event) {
+    event.respondWith(caches.match(event.request).then(function(response) {
+      // caches.match() always resolves
+      // but in case of success response will have value
+      if (response !== undefined) {
+        return response;
+      } else {
+        return fetch(event.request).then(function (response) {
+          // response may be used only once
+          // we need to save clone to put one copy in cache
+          // and serve second one
+          let responseClone = response.clone();
+          
+          caches.open(CACHE_NAME).then(function (cache) {
+            cache.put(event.request, responseClone);
+          });
+          return response;
+        }).catch(function () {
+          return caches.match('/favicon.png');
+        });
+      }
+    }));
   });
 
-  self.addEventListener('fetch', event => {
-    event.respondWith(
-      caches.open(cacheName)
-        .then(cache => cache.match(event.request, {ignoreSearch: true}))
-        .then(response => {
-        return response || fetch(event.request);
-      })
-    );
-  });
 }
 
 
