@@ -2,6 +2,7 @@
  "lang" : "fr-FR",
  "dir" : "ltr",
  "name" : "Quiz Dubai",
+ "description" : "50 questions sur Dubaï pour tester vos aprioris !",
  "short_name" : "Quiz Dubai",
  "icons" :   [
    {
@@ -17,7 +18,7 @@
  ],
  "theme_color" : "#ff9800",
  "background_color" : "#ff9800",
- "start_url" : "/index.html",
- "display" : "standalone",
+ "start_url" : "index.html",
+ "display" : "fullscreen",
  "orientation" : "natural"
 }
