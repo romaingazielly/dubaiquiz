@@ -1,8 +1,8 @@
 var cacheName = 'DubaiQuizv2';
 var filesToCache = [
-  '/',
   'https://fonts.googleapis.com/css?family=Roboto:100:300,400,500,700,900|Material+Icons',
-  'dist/**/*.{js,html,css}'
+  '/**/*.{js,html,css}'
+
 ];
 
 if ('serviceWorker' in navigator) {
