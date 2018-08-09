@@ -68,9 +68,11 @@ h1{
 }
   h2{
     margin:20px auto;
+    font-size:26px;
   }
   p.instructions{
     padding:0 5%;
+    font-size:20px;
   }
   form .primary--text{
     color: #ff9800!important;
@@ -90,6 +92,11 @@ h1{
   }
   .spacer + .white--text{
     margin:0;
+  }
+  .v-btn{
+    font-size:18px;
+    padding:10px 20px;
+    height:auto;
   }
   .v-badge{
     margin-left:10px;

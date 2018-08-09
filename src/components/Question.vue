@@ -454,7 +454,8 @@ export default {
     display:block;
     min-width:130px;
     width:100%;
-    height: 60px;
+    height: auto;
+    padding:20px;
     border-radius:5px;
   }
   #false{
@@ -462,6 +463,13 @@ export default {
   }
   .padding{
     padding:50px 5%;
+  }
+  .v-card__title{
+    font-size:24px;
+    font-weight:bold;
+  }
+  .v-card__text{
+    font-size:18px;
   }
   .v-divider{
     margin-bottom: 0;
