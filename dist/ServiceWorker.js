@@ -1,22 +1,15 @@
-var CACHE_NAME = 'DubaiQuizv1';
-var urlsToCache = [
+var cacheName = 'DubaiQuizv2';
+var filesToCache = [
   '/',
-  '/index.html',
-  '/css/*',
-  '/js/*'
+  'https://fonts.googleapis.com/css?family=Roboto:100:300,400,500,700,900|Material+Icons',
+  'dist/**/*.{js,html,css}'
 ];
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
       // Registration was successful
-      if(reg.installing) {
-        console.log('Service worker installing');
-      } else if(reg.waiting) {
-        console.log('Service worker installed');
-      } else if(reg.active) {
-        console.log('Service worker active');
-      }
+      console.log('ServiceWorker registration ok', registration);
     }, function(err) {
       // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
@@ -28,10 +21,10 @@ if ('serviceWorker' in navigator) {
 self.addEventListener('install', function(event) {
   console.log('WORKER: install event in progress.');
   event.waitUntil(
-    caches.open(CACHE_NAME)
+    caches.open(cacheName)
       .then(function(cache) {
         console.log('Opened cache');
-        return cache.addAll(urlsToCache)
+        return cache.addAll(filesToCache)
         .then(function() {
           console.log('WORKER: install completed');
         })
