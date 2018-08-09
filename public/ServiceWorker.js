@@ -1,4 +1,5 @@
-var CACHE_NAME = 'DubaiQuizv2';
+const version = "1";
+const CACHE_NAME = 'DubaiQuizv2';
 var filesToCache = [
   'https://fonts.googleapis.com/css?family=Roboto:100:300,400,500,700,900|Material+Icons',
   '/**/*.{js,html,css}',
@@ -11,10 +12,37 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
       console.log('ServiceWorker registration success', registration.scope);
       registration.update()
-      installWorkers()
+      //installWorkers()
+      test()
     }, function(err) {
       console.log('ServiceWorker registration failed: ', err);
     });
+  });
+}
+
+function test(){
+  self.addEventListener('install', e => {
+    const timeStamp = Date.now();
+    e.waitUntil(
+      caches.open(cacheName).then(cache => {
+        return cache.addAll(filesToCache)
+          .then(() => self.skipWaiting());
+      })
+    );
+  });
+
+  self.addEventListener('activate', event => {
+    event.waitUntil(self.clients.claim());
+  });
+
+  self.addEventListener('fetch', event => {
+    event.respondWith(
+      caches.open(cacheName)
+        .then(cache => cache.match(event.request, {ignoreSearch: true}))
+        .then(response => {
+        return response || fetch(event.request);
+      })
+    );
   });
 }
 
