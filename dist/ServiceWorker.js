@@ -8,26 +8,28 @@ var filesToCache = [
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration ok', registration);
+      console.log('ServiceWorker registration success', registration);
+      registration.update()
+      installWorkers()
     }, function(err) {
-      // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
     });
   });
 }
 
 
-self.addEventListener('install', function(event) {
-  console.log('WORKER: install event in progress.');
-  event.waitUntil(
-    caches.open(cacheName)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(filesToCache)
-        .then(function() {
-          console.log('WORKER: install completed');
+function installWorkers(){
+  self.addEventListener('install', function(event) {
+    console.log('WORKER: install event in progress.');
+    event.waitUntil(
+      caches.open(cacheName)
+        .then(function(cache) {
+          console.log('Opened cache');
+          return cache.addAll(filesToCache)
+          .then(function() {
+            console.log('WORKER: install completed');
+          })
         })
-      })
-  );
-});
+    );
+  })
+}

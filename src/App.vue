@@ -15,7 +15,7 @@
 
     <transition name="bounce" appear mode="out-in">
       <section v-if="visible" key="visible" class="intro">
-        <h1 class="display-1">Préjugé ou réalité ?</h1>
+        <h1 class="display-1">Dubaï</h1>
         <v-divider></v-divider>
         <h2>Jusqu’où iront vos préjugés ?</h2>
         <p class="instructions">Répondez aux 50 questions qui vont suivre pour voir si votre vision de Dubai correspond à la réalité !</p>
