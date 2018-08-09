@@ -8,7 +8,7 @@ var filesToCache = [
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
-      console.log('ServiceWorker registration success', registration);
+      console.log('ServiceWorker registration success', registration.scope);
       registration.update()
       installWorkers()
     }, function(err) {
@@ -19,6 +19,7 @@ if ('serviceWorker' in navigator) {
 
 
 function installWorkers(){
+  console.log('install is called')
   self.addEventListener('install', function(event) {
     console.log('WORKER: install event in progress.');
     event.waitUntil(
@@ -32,4 +33,19 @@ function installWorkers(){
         })
     );
   })
+
+
+  self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          // Cache hit - return response
+          if (response) {
+            return response;
+          }
+          return fetch(event.request);
+        }
+      )
+    );
+  });
 }
