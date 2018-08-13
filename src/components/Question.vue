@@ -120,21 +120,13 @@ export default {
         fact: 'Yes, like always.'
       }],
       realQuestionList: [{
-        question: 'Dans un couple marié, si le père meurt, l’enfant devient pupille de l’état.',
-        answer: true,
-        fact: 'Le père doit accorder de son vivant la garde de l\'enfant à la mère dans le cas ou il décède, autrement c\'est l\'état qui devient responsable de l\'enfant.'
+        question: 'Les femmes n\'ont pas le droit de conduire de camions.',
+        answer: false,
+        fact: 'Les femmes ont le droit de conduire tout type de véhicules aux UAE, au même titre que les hommes.'
       },{
         question: 'Si 2 hommes sont pris en train d\'avoir des relation sexuelles, seul celui qui se fait enculer est considéré comme gay.',
         answer: true,
         fact: 'Selon la loi, seule la personne jouant le rôle de la femme est considéré comme homosexuel, et donc condamnée.'
-      },{
-        question: 'Traverser hors des passages piétons ou lorsque le petit bonhomme est rouge est puni de 420AED d’amende.',
-        answer: true,
-        fact: 'En France, vous risquez 5€ d\'amende. Aux UAE, c\'est 105€. Plutôt dissuasif non ?'
-      },{
-        question: 'Les femmes n\'ont pas le droit de conduire de camions.',
-        answer: false,
-        fact: 'Les femmes ont le droit de conduire tout type de véhicules aux UAE, au même titre que les hommes.'
       },{
         question: 'Il est obligatoire de disposer d’une « liquor license » pour pouvoir boire de l’alcool chez soi.',
         answer: true,
@@ -167,6 +159,10 @@ export default {
         question: 'La limite d’alcool par litre de sang au volant pour les non musulmans est de 0.2g.',
         answer: false,
         fact: 'Musulman ou pas, la limite d\'alcool par litre de sang est de 0. Il n\'y a pas de contrôles d\'alcoolémie sur les routes, mais si vous crééez un accident et êtes contrôlés positif à l\'alcool, c\'est la prison qui vous attend.'
+      },{
+        question: 'Traverser hors des passages piétons ou lorsque le petit bonhomme est rouge est puni de 420AED d’amende.',
+        answer: true,
+        fact: 'En France, vous risquez 5€ d\'amende. Aux UAE, c\'est 105€. Plutôt dissuasif non ?'
       },{
         question: 'Tous les clubs ferment à 1h du matin, maxiumum.',
         answer: false,
@@ -227,6 +223,10 @@ export default {
         question: 'Le décalage horaire est de 3h l’été et de 4h l’hiver.',
         answer: false,
         fact: '2h l\'été et 1h l\'hiver.'
+      },{
+        question: 'Dans un couple marié, si le père meurt, l’enfant devient pupille de l’état.',
+        answer: true,
+        fact: 'Le père doit accorder de son vivant la garde de l\'enfant à la mère dans le cas ou il décède, autrement c\'est l\'état qui devient responsable de l\'enfant.'
       },{
         question: 'Les UAE sont divisés en 6 émirats.',
         answer: false,
