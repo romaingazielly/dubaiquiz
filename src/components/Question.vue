@@ -124,7 +124,7 @@ export default {
         answer: false,
         fact: 'Les femmes ont le droit de conduire tout type de véhicules aux UAE, au même titre que les hommes.'
       },{
-        question: 'Si 2 hommes sont pris en train d\'avoir des relation sexuelles, seul celui qui se fait enculer est considéré comme gay.',
+        question: 'Si 2 hommes sont pris en train d\'avoir des relation sexuelles, seul celui qui se fait pénétrer est considéré comme gay.',
         answer: true,
         fact: 'Selon la loi, seule la personne jouant le rôle de la femme est considéré comme homosexuel, et donc condamnée.'
       },{
@@ -174,7 +174,7 @@ export default {
       },{
         question: 'Certaines plages sont uniquement réservées aux femmes.',
         answer: true,
-        fact: 'La plupart du temps ce ne sont que durant certains jours que ces plages sont réservées aux femme, comme la plage d\'Al Mamazar, réservée aux femme les lundi et mercredi.'
+        fact: 'La plupart du temps ce ne sont que durant certains jours que ces plages sont réservées aux femmes, comme la plage d\'Al Mamazar, réservée aux femmes les lundi et mercredi.'
       },{
         question: 'Les femmes ne doivent pas sortir sans voile le vendredi',
         answer: false,
