@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json());
 app.use(express.static(dist));
 
-app.all('/end-of-quiz', (req, res, next) => {
+app.all('/end-of-quizz', (req, res, next) => {
   // const { product, machines } = req.body;
   const answer =[
     {
