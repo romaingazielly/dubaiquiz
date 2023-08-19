@@ -4,83 +4,85 @@
     <!-- SCORE -->
     <!-- <transition name="fade"> -->
     <aside class="aside" v-if="scoreStarted">
-        <!-- <span>Score :</span> -->
-        <v-badge color="green" right overlap>
-          <span slot="badge">{{count_right}}</span>
-          <v-icon color="white" size="30">check_box</v-icon>
-        </v-badge>
-        <v-badge color="red" right overlap>
-          <span slot="badge">{{count_wrong}}</span>
-          <v-icon color="white" size="30">cancel</v-icon>
-        </v-badge>
-      </aside>
+      <!-- <span>Score :</span> -->
+      <v-badge color="green" right overlap>
+        <span slot="badge">{{ count_right }}</span>
+        <v-icon color="white" size="30">check_box</v-icon>
+      </v-badge>
+      <v-badge color="red" right overlap>
+        <span slot="badge">{{ count_wrong }}</span>
+        <v-icon color="white" size="30">cancel</v-icon>
+      </v-badge>
+    </aside>
     <!-- </transition> -->
-    
+
     <!-- Questions -->
     <transition name="bounce" mode="out-in">
-    <v-container fluid class="question-container" v-if="questionsView">
-      <v-layout column align-center>
-        <p class="question" v-model="realQuestionList">{{realQuestionList[currentQuestion].question}}</p>
+      <v-container fluid class="question-container" v-if="questionsView">
+        <v-layout column align-center>
+          <p class="question" v-model="realQuestionList">{{ realQuestionList[currentQuestion].question }}</p>
 
-        <v-dialog v-model="dialog" width="90%" persistent>
+          <v-dialog v-model="dialog" width="90%" persistent>
 
-        <v-btn large color="info" @click.prevent="displayResult(true)" id="true" slot="activator">
-         <!--  <v-icon dark right>check_circle</v-icon> -->
-          Vrai
-        </v-btn>
+            <v-btn large color="info" @click.prevent="displayResult(true)" id="true" slot="activator">
+              <!--  <v-icon dark right>check_circle</v-icon> -->
+              Vrai
+            </v-btn>
 
-        <v-btn large color="info" @click.prevent="displayResult(false)" id="false" slot="activator">
-         <!--  <v-icon dark right>block</v-icon> -->
-          Faux
-        </v-btn>
+            <v-btn large color="info" @click.prevent="displayResult(false)" id="false" slot="activator">
+              <!--  <v-icon dark right>block</v-icon> -->
+              Faux
+            </v-btn>
 
-        
-          <v-card class="text-xs-center">
-<!--             <v-card-title class="headline justify-center" primary-title v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
+
+            <v-card class="text-xs-center">
+              <!--             <v-card-title class="headline justify-center" primary-title v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
               Correct
             </v-card-title> -->
 
-            <v-card-title class="headline justify-center" primary-title v-if="realQuestionList[currentQuestion].answer" v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
-              C'est Vrai !
-            </v-card-title>
-            <v-card-title class="headline error justify-center" primary-title v-else v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
-              C'est Faux !
-            </v-card-title>
-            <v-card-text class="padding">
-              {{realQuestionList[currentQuestion].fact}}
-            </v-card-text>
+              <v-card-title class="headline justify-center" primary-title v-if="realQuestionList[currentQuestion].answer"
+                v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
+                C'est Vrai !
+              </v-card-title>
+              <v-card-title class="headline error justify-center" primary-title v-else
+                v-bind:class="{ error: isNotCorrect, 'success': isCorrect }">
+                C'est Faux !
+              </v-card-title>
+              <v-card-text class="padding">
+                {{ realQuestionList[currentQuestion].fact }}
+              </v-card-text>
 
-            <v-divider></v-divider>
-    
-            <v-card-actions class="justify-center">
-              <v-btn color="amber" large flat @click.prevent="nextQuestion">
-                Continuer
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+              <v-divider></v-divider>
 
-      </v-layout>
-    </v-container>
+              <v-card-actions class="justify-center">
+                <v-btn color="amber" large flat @click.prevent="nextQuestion">
+                  Continuer
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
 
-    <!-- Form -->
-    <!-- <v-slide-x-reverse-transition mode="out-in"> -->
+        </v-layout>
+      </v-container>
+
+      <!-- Form -->
+      <!-- <v-slide-x-reverse-transition mode="out-in"> -->
       <v-container fluid class="form-container" v-if="formView" key="invisible">
         <h1>Votre score: <span>{{ count_right }} / {{ totalQuestion }}</span></h1>
 
         <v-form v-model="validForm">
-          <v-text-field v-model="pseudo" :rules="pseudoRules" :counter="10" label="Pseudo" required
-          ></v-text-field>
+          <v-text-field v-model="pseudo" :rules="pseudoRules" :counter="10" label="Pseudo" required></v-text-field>
 
           <v-btn @click="saveScore()" :disabled="!validForm">Afficher le classement</v-btn>
         </v-form>
       </v-container>
-    <!-- </v-slide-x-reverse-transition> -->
+      <!-- </v-slide-x-reverse-transition> -->
 
-    <!-- Classement -->
+      <!-- Classement -->
       <v-container fluid class="ranking-container" v-if="classementView" key="invisible">
         <h1>Classement</h1>
-        <v-data-table hide-actions :headers="th" :pagination.sync="pagination" :items="classement" rows-per-page-text="Joueurs par page">
+        <v-data-table hide-actions :headers="th" :pagination.sync="pagination" :items="classement"
+          rows-per-page-text="Joueurs par page">
           <template slot="items" slot-scope="props">
             <td class="text-xs-left table-pseudo">{{ props.item.pseudo }}</td>
             <td class="text-xs-center table-score">{{ props.item.score }}</td>
@@ -98,10 +100,10 @@
 
 export default {
   name: 'Question',
-  data(){
-    return{
+  data() {
+    return {
       scoreStarted: false,
-      classementView:false,
+      classementView: false,
       questionsView: true,
       formView: false,
       currentQuestion: 0,
@@ -110,11 +112,11 @@ export default {
         question: 'Is Zain the King of AWS security?',
         answer: false,
         fact: 'Don\'t give him your server security.. Something terrible could happen'
-      },{
+      }, {
         question: 'Is Dubai the capital of UAE?',
         answer: false,
         fact: 'Abu Dabi is the capital of UAE.'
-      },{
+      }, {
         question: 'Is Vincent in holidays?',
         answer: true,
         fact: 'Yes, like always.'
@@ -123,7 +125,7 @@ export default {
         question: 'Les femmes n\'ont pas le droit de conduire de camions.',
         answer: false,
         fact: 'Les femmes ont le droit de conduire tout type de véhicules aux UAE, au même titre que les hommes.'
-      },{
+      }, {
         question: 'Si 2 hommes sont pris en train d\'avoir des relation sexuelles, seul celui qui se fait pénétrer est considéré comme gay.',
         answer: true,
         fact: 'Selon la loi, seule la personne jouant le rôle de la femme est considéré comme homosexuel, et donc condamnée.'
@@ -343,16 +345,12 @@ export default {
         v => v.length <= 10 || 'Ton pseudo ne doit pas faire plus de 10 caracères.'
       ],
       validForm: false,
-      th:[
-        {text:'Pseudo', value: 'pseudo', class: 'table-pseudo'},
-        {text: 'Score', value: 'score', class: 'table-score'},
-        {text: 'Date', value: 'date', class: 'table-date'}
+      th: [
+        { text: 'Pseudo', value: 'pseudo', class: 'table-pseudo' },
+        { text: 'Score', value: 'score', class: 'table-score' },
+        { text: 'Date', value: 'date', class: 'table-date' }
       ],
-      classement: [{
-        pseudo: '👑 Romain',
-        score: '50',
-        date: '15-07-2018'
-      }],
+      classement: [],
       pagination: {
         sortBy: 'score',
         descending: true,
@@ -363,16 +361,16 @@ export default {
   props: {
     msg: String
   },
-  methods:{
-    displayResult(result){
+  methods: {
+    displayResult(result) {
       this.scoreStarted = true
-      if(result == this.realQuestionList[this.currentQuestion].answer){
+      if (result == this.realQuestionList[this.currentQuestion].answer) {
         console.log('correct')
         this.count_right++
         this.isCorrect = true
         this.isNotCorrect = false
       }
-      else{
+      else {
         this.count_wrong++
         console.log('incorrect')
         this.isCorrect = false
@@ -381,45 +379,45 @@ export default {
       this.realQuestionList[this.currentQuestion]
       this.realQuestionList[this.currentQuestion].fact
     },
-    nextQuestion(){
-      console.log('max:', this.realQuestionList.length-1)
+    nextQuestion() {
+      console.log('max:', this.realQuestionList.length - 1)
       this.dialog = false
-      if(this.currentQuestion < this.realQuestionList.length-1){
-        this.$nextTick(function() {
+      if (this.currentQuestion < this.realQuestionList.length - 1) {
+        this.$nextTick(function () {
           this.currentQuestion++
         })
       }
-      else{
+      else {
         this.endTheQuiz()
       }
       console.log(this.currentQuestion)
     },
-    endTheQuiz(){
+    endTheQuiz() {
       this.totalQuestion = this.realQuestionList.length
       this.questionsView = false
       this.formView = true
     },
-    saveScore(){
+    saveScore() {
       console.log('score saved!')
-
-      const toTwoDigits = num => num < 10 ? '0' + num : num;
-      let today = new Date();
-      let year = today.getFullYear();
-      let month = toTwoDigits(today.getMonth() + 1);
-      let day = toTwoDigits(today.getDate());
-      let scoreDate = `${day}-${month}-${year}`;
-
-      console.log(scoreDate)
-      this.classement.push({
-        pseudo: this.pseudo,
-        score: this.count_right,
-        date: scoreDate
-      })
-      this.pagination.sortBy = this.th[1].value
-      this.formView = false
-      this.classementView = true
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pseudo: this.pseudo,
+          score: this.count_right,
+          date: scoreDate
+        })
+      };
+      fetch("/end-of-quizz", requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          this.classement = data
+          this.pagination.sortBy = this.th[1].value
+          this.formView = false
+          this.classementView = true
+        });
     },
-    replay(){
+    replay() {
       this.classementView = false
       this.questionsView = true
       //shuffle(this.questionList)
@@ -436,67 +434,82 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .main-container{
-    padding: 0;
-  }
-  .question-container{
-    padding-top:0;
-    padding-bottom:0;
-  }
-  p.question{
-    font-size: 20px;
-    margin:50px 0 40px 0;
-  }
-  .v-icon{
-    margin:0 5px 0 0;
-  }
-  .v-btn#true, .v-btn#false{
-    display:block;
-    min-width:130px;
-    width:100%;
-    height: auto;
-    padding:20px;
-    border-radius:5px;
-  }
-  #false{
-    margin-top:20px;
-  }
-  .padding{
-    padding:50px 5%;
-  }
-  .v-card__title{
-    font-size:24px;
-    font-weight:bold;
-  }
-  .v-card__text{
-    font-size:18px;
-  }
-  .v-divider{
-    margin-bottom: 0;
-  }
-  .ranking-container{
-    width:90%;
-    min-width:290px;
-    max-width: 500px;
-    display:table;
-    margin: auto;
-  }
-  .ranking-container h1{
-    margin-bottom: 10px;
-  }
-  .ranking-container button{
-    margin:20px auto 0;
-  }
-  .form-container{
-    width:50%;
-    min-width:290px;
-    margin:30px auto;
-  }
-  .form-container h1{
-    margin-bottom: 40px;
-  }
-  .form-container button{
-    margin:50px auto 0;
-  }
-  
+.main-container {
+  padding: 0;
+}
+
+.question-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+p.question {
+  font-size: 20px;
+  margin: 50px 0 40px 0;
+}
+
+.v-icon {
+  margin: 0 5px 0 0;
+}
+
+.v-btn#true,
+.v-btn#false {
+  display: block;
+  min-width: 130px;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#false {
+  margin-top: 20px;
+}
+
+.padding {
+  padding: 50px 5%;
+}
+
+.v-card__title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.v-card__text {
+  font-size: 18px;
+}
+
+.v-divider {
+  margin-bottom: 0;
+}
+
+.ranking-container {
+  width: 90%;
+  min-width: 290px;
+  max-width: 500px;
+  display: table;
+  margin: auto;
+}
+
+.ranking-container h1 {
+  margin-bottom: 10px;
+}
+
+.ranking-container button {
+  margin: 20px auto 0;
+}
+
+.form-container {
+  width: 50%;
+  min-width: 290px;
+  margin: 30px auto;
+}
+
+.form-container h1 {
+  margin-bottom: 40px;
+}
+
+.form-container button {
+  margin: 50px auto 0;
+}
 </style>
