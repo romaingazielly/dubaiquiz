@@ -126,33 +126,13 @@ export default {
         answer: false,
         fact: 'Les femmes ont le droit de conduire tout type de véhicules aux UAE, au même titre que les hommes.'
       }, {
-        question: 'Si 2 hommes sont pris en train d\'avoir des relation sexuelles, seul celui qui se fait pénétrer est considéré comme gay.',
-        answer: true,
-        fact: 'Selon la loi, seule la personne jouant le rôle de la femme est considéré comme homosexuel, et donc condamnée.'
-      },{
         question: 'Il est obligatoire de disposer d’une « liquor license » pour pouvoir boire de l’alcool chez soi.',
         answer: true,
         fact: 'Sans license, vous risquez une amende, un signalement aurpès de votre employeur et une suspension de votre visa.'
       },{
-        question: 'Il est obligatoire de disposer d’une « drug license » pour pouvoir fumer du cannabis.',
-        answer: false,
-        fact: 'Consommer du cannabis, au même titre que toutes les drogues est puni par la loi d\'une peine de prison ferme ainsi que de d\'un ban des UAE engendrant confiscation par l\'état de tous vos biens (comptes en banques, affaires personnels etc..).'
-      },{
-        question: 'Vous devez posséder une lettre de non objection de votre entreprise pour pouvoir faire la demande d’une « liquor license ».',
-        answer: true,
-        fact: 'Sans l\'approbation de votre employeur, impossible d\'avoir une license d\'alcool.'
-      },{
-        question: 'L’alcool est en moyenne 3x plus cher à Dubai qu’en France.',
-        answer: false,
-        fact: 'Dans les bars, le prix d\'une pinte de bière est autour de 10€. Un prix comparable à ceux que l\'on retrouve à Paris au final.'
-      },{
         question: 'Les loyers se paient à l’année et non au mois.',
         answer: true,
         fact: 'Lorsque vous vous engagez pour un appartement, vous le faites pour 1 an. Cependant, pour faire face à la crise immoblière, de nombreux propriétaires accèptent désormais des paiements en plusieurs fois.'
-      },{
-        question: 'Les colocations entre personnes de sexe différents sont interdites.',
-        answer: true,
-        fact: 'Les colocations sont interdites par la loi. Peut importe le sexe des habitants. Mais cohabiter avec des personnes de sexe différents est encore pire et expose à des sanctions supérieures. Pour autant il n\'y a que très peu de contrôles et cette situation est tolérée du moment que les habitants ne créent pas de problèmes au voisinage.'
       },{
         question: 'Le porc et les produits à base de porcs sont introuvables excepté au duty free de l\'aéroport ou via des dealers de porcs.',
         answer: false,
@@ -165,10 +145,6 @@ export default {
         question: 'Traverser hors des passages piétons ou lorsque le petit bonhomme est rouge est puni de 420AED d’amende.',
         answer: true,
         fact: 'En France, vous risquez 5€ d\'amende. Aux UAE, c\'est 105€. Plutôt dissuasif non ?'
-      },{
-        question: 'Tous les clubs ferment à 1h du matin, maxiumum.',
-        answer: false,
-        fact: 'Les boîtes de nuits ferment généralement à 3h au plus tard le weekend. Certaines bénéficient d\'autorisations pour rester ouvertes jusqu\'à 4h qui est la limite.'
       },{
         question: 'Le Métro dispose d’un Wagon interdit aux femmes.',
         answer: false,
@@ -202,21 +178,13 @@ export default {
         answer: true,
         fact: 'En France, on vend le nom de nos stades. Aux UAE, ils vendent le nom des stations de métro.'
       },{
-        question: 'A Dubai, la taxe d’habitation (DEWA) représente 5% du montant total du loyer.',
-        answer: true,
-        fact: 'Au moins c\'est simple, vous saurez dés la souscription du bail combien vous devrez payer. Cette somme est répartie mensuellement sur toute la durée du bail.'
-      },{
-        question: 'À Dubaï, la semaine débute le vendredi.',
+        question: 'À Dubaï, la semaine débute le dimanche.',
         answer: false,
-        fact: 'La semaine débute le dimanche. Le week-end est donc composé du vendredi (jour saint) et du samedi.'
+        fact: 'Plus maintenant ! Depuis le 1er Janvier 2022, les UAE ont adopté les mêmes jours que le reste du monde.'
       },{
         question: 'Les Émiratis ne représentent que moins de 12% de la population du pays.',
         answer: true,
         fact: 'La population des UAE est estimée à 9.5 millions d\'habitants pour 1.4 millions d\'Émiratis et 8.1 millions d\'expatriés.'
-      },{
-        question: 'Le SMIC Émirati est de 7 500€ net / mois.',
-        answer: true,
-        fact: 'Valable uniquement pour les personnes bénéficiants de la nationnalité Émiratie. Dommage hein ?'
       },{
         question: 'Il n\'a pas d\'heure d\'été et d\'heure d\'hiver à Dubaï.',
         answer: true,
@@ -240,7 +208,7 @@ export default {
       },{
         question: 'Dubaï est l\'émirat le plus peuplé des UAE.',
         answer: true,
-        fact: 'Avec plus de 2 500 000 habitants, Dubaï est effectivement l\'émirat le plus peuplé des UAE devant Abu Dhabi (1 678 000). Dubaï représente à lui seule presque la moitié de la population totale du pays.'
+        fact: 'Avec plus de 3 600 000 habitants, Dubaï est effectivement l\'émirat le plus peuplé des UAE devant Abu Dhabi (1 678 000). Dubaï représente à lui seule presque la moitié de la population totale du pays.'
       },{
         question: 'Consulter du porno est punissable d’une peine de prison ferme.',
         answer: false,
@@ -270,27 +238,23 @@ export default {
         answer: false,
         fact: 'Bien que la présence Française soit indéniable aux AUE, les Anglais sont la première population occidentale expatriée présente à Dubai. Ils étaient 240 000 en 2012.'
       },{
-        question: 'Les taxis roses sont réservés aux femmes et conduits par des femmes.',
+        question: 'Les taxis roses sont exclusivement conduits par des femmes.',
         answer: true,
-        fact: 'Les taxis roses sont réservées aux femmes et aux familles exclusivement.'
+        fact: 'Les taxis roses étaient avant réservées aux femmes et aux familles exclusivement, mais ce n\'est plus le cas.'
       },{
         question: 'Les dromadaires sont interdits dans les courses de chameaux.',
         answer: false,
         fact: 'Le dromadaire et le chameau sont réuni sous le même mot en Anglais : Camel. Les 2 sont autorisés durant les "Camel Race".'
       },{
-        question: 'Les jockey de chameaux sont des robots mécaniques',
+        question: 'Les jockeys de chameaux sont des robots mécaniques',
         answer: true,
         fact: 'Avant, des enfants étaient utilisés comme jockey. Ceux-ci avaient généralement entre 3 et 15 ans et faisaient parfois l\'objet d\'un traffic d\'êtres humains. Les UAE ont été le 1er pays en 2002 à interdire l\'usage d\'enfants de moins de 15 ans comme jockeys pour les courses.'
-      },{
-        question: 'Le metro comporte un wagon fumeur.',
-        answer: false,
-        fact: 'Fumer dans le métro vous expose à un amende de 50€. Et ce n\'est pas comme en France, ici comptez sur eux pour l\'appliquer.'
       },{
         question: 'Il faut avoir un permis spécial pour conduire dans le désert.',
         answer: false,
         fact: 'Bien que plus dangereuse et nécéssitant un certain savoir faire, vous avez seulement besoin de votre permis B pour conduire dans le désert.'
       },{
-        question: 'Le vol, quand il dépasse les 10 000$ est puni par la peine de mort.',
+        question: 'Le vol, quand il dépasse les 100 000$ est puni par la peine de mort.',
         answer: false,
         fact: 'Bien qu\'encore en vigueur aux UAE, la peine de mort n\'est appliquée que dans des cas extrèmement graves. Seulement 8 exécutions ont été recensées aux UAE sur ces 10 dernières années.'
     // },{
@@ -310,13 +274,9 @@ export default {
         answer: true,
         fact: 'N\'essayez pas de ramener votre malette de poker, elle sera saisie par la douane.'
       },{
-        question: 'Les personnes de nationalité Israélienne et Iranienne n’ont pas le droit d’accès au pays',
-        answer: true,
-        fact: 'Également valable pour les personnes de nationnalité Qatari suite à la crise actuelle et à l\'embargo sur le Qatar.'
-      },{
         question: 'Tous les produits commercialisés en magasin sont soumis à une TVA de 5%',
         answer: true,
-        fact: 'Fini le temps ou les taxes n\'existaient pas à Dubaï. Depuis le 1er janvier 2018, la TVA à fait son apparition. et ce n\'est que le début.'
+        fact: 'Fini le temps ou les taxes n\'existaient pas à Dubaï. Depuis le 1er janvier 2018, la TVA à fait son apparition aux UAE.'
       },{
         question: 'Le chlore est interdit pour des raisons religieuses. Les piscines sont donc entretenues au sel.',
         answer: false,
@@ -342,7 +302,7 @@ export default {
       isNotCorrect: false,
       pseudoRules: [
         v => !!v || 'Tu as oublié d\'entrer ton pseudo !',
-        v => v.length <= 10 || 'Ton pseudo ne doit pas faire plus de 10 caracères.'
+        v => v.length <= 10 || 'Ton pseudo ne doit pas faire plus de 10 caractères.'
       ],
       validForm: false,
       th: [
