@@ -18,7 +18,7 @@
         <h1 class="display-1">Dubaï</h1>
         <v-divider></v-divider>
         <h2>Jusqu’où iront vos préjugés ?</h2>
-        <p class="instructions">Répondez aux 50 questions qui vont suivre pour voir si votre vision de Dubai correspond à la réalité !</p>
+        <p class="instructions">Répondez aux questions qui vont suivre pour voir si votre vision de Dubai correspond à la réalité !</p>
         <v-btn color="warning" @click.prevent="starQuiz">Commencer</v-btn>
       </section>
 
