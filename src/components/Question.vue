@@ -405,7 +405,6 @@ export default {
         body: JSON.stringify({
           pseudo: this.pseudo,
           score: this.count_right,
-          date: scoreDate
         })
       };
       fetch("/end-of-quizz", requestOptions)
