@@ -361,7 +361,9 @@ export default {
       console.log('score saved!')
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept': 'application/json" },
         body: JSON.stringify({
           pseudo: this.pseudo,
           score: this.count_right,
