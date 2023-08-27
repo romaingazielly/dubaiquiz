@@ -16,9 +16,10 @@ function getDate() {
   let year = today.getFullYear();
   let month = toTwoDigits(today.getMonth() + 1);
   let day = toTwoDigits(today.getDate());
-  return `${day}-${month}-${year}`;
+  let hours = toTwoDigits(today.getHours());
+  let minutes = toTwoDigits(today.getMinutes());
+  return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
-
 
 
 function readLeaderBoard() {

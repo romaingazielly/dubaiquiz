@@ -108,7 +108,7 @@ export default {
       formView: false,
       currentQuestion: 0,
       dialog: false,
-      realQuestionList: [{
+      fakeQuestionList: [{
         question: 'Is Zain the King of AWS security?',
         answer: false,
         fact: 'Don\'t give him your server security.. Something terrible could happen'
@@ -121,7 +121,7 @@ export default {
         answer: true,
         fact: 'Yes, like always.'
       }],
-      realQuestionList2: [{
+      realQuestionList: [{
         question: 'Les femmes n\'ont pas le droit de conduire de camions.',
         answer: false,
         fact: 'Les femmes ont le droit de conduire tout type de véhicules aux UAE, au même titre que les hommes.'
